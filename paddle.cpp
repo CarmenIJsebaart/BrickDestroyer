@@ -1,7 +1,5 @@
 #include "paddle.h"
 
-#include <iostream>
-
 Paddle::Paddle(
   const sf::Vector2f &any_position,
   const float height,
@@ -19,10 +17,9 @@ Paddle create_paddle(
   const int window_height,
   const int window_width)
 {
-  std::cout << window_height;
   //Create a paddle with these parameters:
   const int height = 10;
-  const int width = 75;
+  const int width = 100;
   Paddle paddle(
     sf::Vector2f((window_width/2)-(0.5*width), window_height - height),
     height,

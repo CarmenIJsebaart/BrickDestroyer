@@ -11,7 +11,10 @@ class Game
 public:
   Game();
 
+  ///Run the program
   void run();
+
+  ///One tick in the program
   void tick();
 
 private:

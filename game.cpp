@@ -9,7 +9,7 @@ Game::Game(
   m_paddle = create_paddle(m_window->getSize().y, m_window->getSize().x);
 }
 
-///Run the game
+///Run the program
 void Game::run()
 {
   while(m_window->isOpen())
@@ -35,7 +35,7 @@ void Game::process_poll_events()
   }
 }
 
-///This happens every tick in the game
+///This happens every tick in the program
 void Game::tick()
 {
   process_poll_events();

@@ -24,7 +24,7 @@ Ball create_ball(
   const float speed_x = 0.75;
   const float speed_y = 0.75;
   Ball ball(
-    sf::Vector2f(window_height/2, window_width/2),
+    sf::Vector2f(window_width/2, window_height/2),
     size,
     sf::Color::White,
     speed_x,
