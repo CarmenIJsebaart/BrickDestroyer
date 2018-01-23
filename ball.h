@@ -7,7 +7,7 @@ class Ball
 {
 public:
 
-  ///Create the ball with m_position as the initial position
+  ///Create the ball
   Ball(
     const sf::Vector2f &any_position,
     const float size,

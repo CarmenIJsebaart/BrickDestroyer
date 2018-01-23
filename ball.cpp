@@ -19,10 +19,10 @@ Ball create_ball(
   const int window_height,
   const int window_width)
 {
-  //Create a white ball with size 5 in the middle of the screen
+  //Create a ball with these parameters:
   const int size = 5;
-  const float speed_x = 0.5;
-  const float speed_y = 0.5;
+  const float speed_x = 0.75;
+  const float speed_y = 0.75;
   Ball ball(
     sf::Vector2f(window_height/2, window_width/2),
     size,

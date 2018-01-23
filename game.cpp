@@ -2,9 +2,11 @@
 
 Game::Game(
 ) : m_ball(sf::Vector2f(), 0.0, sf::Color::Black, 0.0, 0.0),
+    m_paddle{sf::Vector2f(), 0.0, 0.0, sf::Color::Black},
     m_window{create_window()}
 {
   m_ball = create_ball(m_window->getSize().x, m_window->getSize().y);
+  m_paddle = create_paddle(m_window->getSize().x, m_window->getSize().y);
 }
 
 ///Run the game
@@ -46,5 +48,5 @@ void Game::tick()
     m_clock.restart();
   }
 
-  draw_on_window(*m_window, m_ball);
+  draw_on_window(*m_window, m_ball, m_paddle);
 }
