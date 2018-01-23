@@ -49,19 +49,27 @@ void keep_ball_in_window(
   const sf::RenderWindow &window,
   Ball &ball)
 {
-  //Check the right wall
+  //Check the right and left wall
   float x_pos = ball.get_position().x;
   float curr_speed_x = ball.get_speed_x();
   float new_speed_x;
-  if(x_pos >= window.getSize().x)
+  if(x_pos >= (window.getSize().x - ball.get_size()) ||
+     x_pos <= 0.0)
   {
     new_speed_x = -1.0*curr_speed_x;
     ball.set_speed_x(new_speed_x);
   }
 
-  //Check the lower wall
-  //float y_pos = ball.get_position().y;
-
+  //Check the lower and upper wall
+  float y_pos = ball.get_position().y;
+  float curr_speed_y = ball.get_speed_y();
+  float new_speed_y;
+  if(y_pos >= (window.getSize().y - ball.get_size()) ||
+     y_pos <= 0.0)
+  {
+    new_speed_y = -1.0*curr_speed_y;
+    ball.set_speed_y(new_speed_y);
+  }
 }
 
 ///Move the ball
