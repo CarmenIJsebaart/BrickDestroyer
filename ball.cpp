@@ -34,3 +34,25 @@ sf::CircleShape get_shape(
   ball_shape.setFillColor(ball.get_color());
   return ball_shape;
 }
+
+///Move the ball
+void move(
+  Ball &ball)
+{
+  //Calculate new x-position
+  const auto curr_x_pos = ball.get_position().x;
+  auto new_x_pos = curr_x_pos + 0.5;
+
+  //Calculate new y-position
+  const auto curr_y_pos = ball.get_position().y;
+  auto new_y_pos = curr_y_pos + 0.5;
+
+  //Set the new position of the ball
+  ball.set_position(sf::Vector2f(new_x_pos, new_y_pos));
+}
+
+void Ball::set_position(
+  const sf::Vector2f &any_position)
+{
+  m_position = any_position;
+}

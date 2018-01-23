@@ -16,6 +16,7 @@ void Game::run()
   }
 }
 
+///Process events
 void Game::process_poll_events()
 {
   sf::Event event;
@@ -40,7 +41,7 @@ void Game::tick()
 
   if(m_clock.getElapsedTime().asMilliseconds() >= update_time)
   {
-    //ball.move(sf::Vector2f(10,10));
+    move(m_ball);
     m_clock.restart();
   }
 
