@@ -36,6 +36,14 @@ public:
     const sf::Vector2f &any_position
   );
 
+  ///Set the x-speed of the ball
+  void set_speed_x(
+    const float &any_speed_x);
+
+  ///Set the y-speed of the ball
+  void set_speed_y(
+    const float &any_speed_y);
+
 private:
 
   sf::Color m_color;
@@ -46,15 +54,24 @@ private:
 
 };
 
+///Create ball
 Ball create_ball(
   const int window_height,
   const int window_width
 );
 
+///Prevent the ball from exiting the window
+void keep_ball_in_window(
+  const sf::RenderWindow &window,
+  Ball &ball
+);
+
+///Move the ball
 void move(
   Ball &ball
 );
 
+///Get how the ball looks like (color, position, size, shape)
 sf::CircleShape get_shape(
   const Ball &ball
 );

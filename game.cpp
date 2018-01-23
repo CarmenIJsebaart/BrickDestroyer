@@ -42,6 +42,7 @@ void Game::tick()
   if(m_clock.getElapsedTime().asMilliseconds() >= update_time)
   {
     move(m_ball);
+    keep_ball_in_window(*m_window, m_ball);
     m_clock.restart();
   }
 

@@ -44,6 +44,26 @@ sf::CircleShape get_shape(
   return ball_shape;
 }
 
+///Prevent the ball from exiting the window
+void keep_ball_in_window(
+  const sf::RenderWindow &window,
+  Ball &ball)
+{
+  //Check the right wall
+  float x_pos = ball.get_position().x;
+  float curr_speed_x = ball.get_speed_x();
+  float new_speed_x;
+  if(x_pos >= window.getSize().x)
+  {
+    new_speed_x = -1.0*curr_speed_x;
+    ball.set_speed_x(new_speed_x);
+  }
+
+  //Check the lower wall
+  //float y_pos = ball.get_position().y;
+
+}
+
 ///Move the ball
 void move(
   Ball &ball)
@@ -67,4 +87,18 @@ void Ball::set_position(
   const sf::Vector2f &any_position)
 {
   m_position = any_position;
+}
+
+///Set the x-speed of the ball
+void Ball::set_speed_x(
+  const float &any_speed_x)
+{
+  m_speed_x = any_speed_x;
+}
+
+///Set the y-speed of the ball
+void Ball::set_speed_y(
+  const float &any_speed_y)
+{
+  m_speed_y = any_speed_y;
 }
