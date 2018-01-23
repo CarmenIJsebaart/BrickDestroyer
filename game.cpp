@@ -1,7 +1,7 @@
 #include "game.h"
 
 Game::Game(
-) : m_ball(sf::Vector2f(), 0.0, sf::Color::Black),
+) : m_ball(sf::Vector2f(), 0.0, sf::Color::Black, 0.0, 0.0),
     m_window{create_window()}
 {
   m_ball = create_ball(m_window->getSize().x, m_window->getSize().y);

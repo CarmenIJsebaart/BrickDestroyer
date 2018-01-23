@@ -20,6 +20,7 @@ private:
   Ball m_ball;
   std::unique_ptr<sf::RenderWindow> m_window;
 
+  ///Process events
   void process_poll_events();
 };
 
