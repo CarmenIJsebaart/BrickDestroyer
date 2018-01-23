@@ -1,5 +1,6 @@
 #include "window.h"
 
+///Create program window
 sf::RenderWindow * create_window(
   const int window_height,
   const int window_width)
@@ -10,6 +11,7 @@ sf::RenderWindow * create_window(
              sf::Style::Titlebar | sf::Style::Close);
 }
 
+///Draw a particular state of the program on the window
 void draw_on_window(
   sf::RenderWindow &window,
   const Ball &ball)
@@ -17,6 +19,7 @@ void draw_on_window(
   game_on_screen(window, ball);
 }
 
+///Draw the game on the window
 void game_on_screen(
   sf::RenderWindow & window,
   const Ball &ball)

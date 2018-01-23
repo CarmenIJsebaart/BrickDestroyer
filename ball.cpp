@@ -1,19 +1,19 @@
 #include "ball.h"
 
-#include <iostream>
-Ball::Ball(const sf::Vector2f &any_position,
+Ball::Ball(
+  const sf::Vector2f &any_position,
   const float size,
-  sf::Color color)
-  : m_color{color},
+  sf::Color color
+) : m_color{color},
     m_position{any_position},
     m_size{size}
 {
 }
 
+///Create ball
 Ball create_ball(
   const int window_height,
-  const int window_width
-)
+  const int window_width)
 {
   const int size = 5;
   Ball ball(
@@ -24,6 +24,7 @@ Ball create_ball(
   return ball;
 }
 
+///Get how the ball looks like (color, position, size, shape)
 sf::CircleShape get_shape(
   const Ball &ball)
 {

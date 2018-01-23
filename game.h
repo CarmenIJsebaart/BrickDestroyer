@@ -3,8 +3,8 @@
 
 #include <memory>
 #include <SFML/Graphics.hpp>
-
 #include "ball.h"
+#include "window.h"
 
 class Game
 {
@@ -16,9 +16,11 @@ public:
 
 private:
 
-  sf::Clock clock;
-  Ball ball;
-  std::unique_ptr<sf::RenderWindow> window;
+  sf::Clock m_clock;
+  Ball m_ball;
+  std::unique_ptr<sf::RenderWindow> m_window;
+
+  void process_poll_events();
 };
 
 #endif // GAME_H
