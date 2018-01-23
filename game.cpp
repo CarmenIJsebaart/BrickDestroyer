@@ -2,8 +2,8 @@
 
 #include "window.h"
 
-Game::Game()
-  : ball(sf::Vector2f(), 0.0, sf::Color::Black, 0, 0),
+Game::Game(
+) : ball(sf::Vector2f(), 0.0, sf::Color::Black),
     window{create_window()}
 {
   ball = create_ball(window->getSize().x, window->getSize().y);

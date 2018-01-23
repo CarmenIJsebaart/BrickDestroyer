@@ -6,8 +6,8 @@
 #include "ball.h"
 
 sf::RenderWindow * create_window(
-  const int window_height = 400,
-  const int window_width = 600);
+  const int window_height = 600,
+  const int window_width = 500);
 
 void draw_on_window(
   sf::RenderWindow &window,
