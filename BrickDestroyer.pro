@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     game.cpp \
-    window.cpp
+    window.cpp \
+    ball.cpp
 
 CONFIG += c++14
 QMAKE_CXX = g++-5
@@ -17,7 +18,8 @@ LIBS += -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 HEADERS += \
     game.h \
-    window.h
+    window.h \
+    ball.h
 
 # Debug and release mode
 CONFIG += debug_and_release

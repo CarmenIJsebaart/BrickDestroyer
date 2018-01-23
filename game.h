@@ -4,6 +4,8 @@
 #include <memory>
 #include <SFML/Graphics.hpp>
 
+#include "ball.h"
+
 class Game
 {
 public:
@@ -15,7 +17,7 @@ public:
 private:
 
   sf::Clock clock;
-  sf::CircleShape ball;
+  Ball ball;
   std::unique_ptr<sf::RenderWindow> window;
 };
 

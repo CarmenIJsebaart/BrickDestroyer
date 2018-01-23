@@ -12,16 +12,16 @@ sf::RenderWindow * create_window(
 
 void draw_on_window(
   sf::RenderWindow &window,
-  const sf::CircleShape &ball)
+  const Ball &ball)
 {
   game_on_screen(window, ball);
 }
 
 void game_on_screen(
   sf::RenderWindow & window,
-  const sf::CircleShape &ball)
+  const Ball &ball)
 {
   window.clear();
-  window.draw(ball);
+  window.draw(get_shape(ball));
   window.display();
 }

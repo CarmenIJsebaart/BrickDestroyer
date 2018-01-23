@@ -3,10 +3,10 @@
 #include "window.h"
 
 Game::Game()
-  : ball{},
+  : ball(sf::Vector2f(), 0.0, sf::Color::Black, 0, 0),
     window{create_window()}
 {
-  //ball = create_ball();
+  ball = create_ball(window->getSize().x, window->getSize().y);
 }
 
 ///Run the game
@@ -26,7 +26,7 @@ void Game::tick()
 
   if(clock.getElapsedTime().asMilliseconds() >= update_time)
   {
-    ball.move(sf::Vector2f(10,10));
+    //ball.move(sf::Vector2f(10,10));
     clock.restart();
   }
 
