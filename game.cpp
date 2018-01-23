@@ -5,8 +5,8 @@ Game::Game(
     m_paddle{sf::Vector2f(), 0.0, 0.0, sf::Color::Black},
     m_window{create_window()}
 {
-  m_ball = create_ball(m_window->getSize().x, m_window->getSize().y);
-  m_paddle = create_paddle(m_window->getSize().x, m_window->getSize().y);
+  m_ball = create_ball(m_window->getSize().y, m_window->getSize().x);
+  m_paddle = create_paddle(m_window->getSize().y, m_window->getSize().x);
 }
 
 ///Run the game

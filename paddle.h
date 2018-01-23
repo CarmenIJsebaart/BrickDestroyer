@@ -15,6 +15,18 @@ public:
     const sf::Color color
   );
 
+  ///Get the color of the paddle
+  sf::Color get_color() const noexcept { return m_color; }
+
+  ///Get the height of the paddle
+  float get_height() const noexcept { return m_height; }
+
+  ///Get the position of the paddle
+  sf::Vector2f get_position() const noexcept { return m_position; }
+
+  ///Get the width of the paddle
+  float get_width() const noexcept { return m_width; }
+
 private:
 
   sf::Color m_color;
