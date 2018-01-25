@@ -29,6 +29,8 @@ void Game::process_poll_events()
       case sf::Event::Closed:
         m_window->close();
         break;
+      case sf::Event::MouseMoved:
+        move(*m_window, m_paddle);
       default:
         break;
     }

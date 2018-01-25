@@ -60,6 +60,11 @@ Ball create_ball(
   const int window_width
 );
 
+///Get how the ball looks like (color, position, size, shape)
+sf::CircleShape get_shape(
+  const Ball &ball
+);
+
 ///Prevent the ball from exiting the window
 void keep_ball_in_window(
   const sf::RenderWindow &window,
@@ -69,11 +74,6 @@ void keep_ball_in_window(
 ///Move the ball
 void move(
   Ball &ball
-);
-
-///Get how the ball looks like (color, position, size, shape)
-sf::CircleShape get_shape(
-  const Ball &ball
 );
 
 #endif // BALL_H

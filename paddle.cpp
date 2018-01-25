@@ -39,3 +39,19 @@ sf::RectangleShape get_shape(
   paddle_shape.setFillColor(paddle.get_color());
   return paddle_shape;
 }
+
+///Move the paddle
+void move(
+  const sf::RenderWindow &window,
+  Paddle &paddle)
+{
+  //Set the new position of the paddle
+  paddle.set_position(sf::Vector2f(sf::Mouse::getPosition(window).x, paddle.get_position().y));
+}
+
+///Set the position of the paddle
+void Paddle::set_position(
+  const sf::Vector2f &any_position)
+{
+  m_position = any_position;
+}

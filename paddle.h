@@ -27,6 +27,11 @@ public:
   ///Get the width of the paddle
   float get_width() const noexcept { return m_width; }
 
+  ///Set the position of the paddle
+  void set_position(
+    const sf::Vector2f &any_position
+  );
+
 private:
 
   sf::Color m_color;
@@ -44,6 +49,12 @@ Paddle create_paddle(
 ///Get how the paddle looks like (color, position, size, shape)
 sf::RectangleShape get_shape(
   const Paddle &paddle
+);
+
+///Move the paddle
+void move(
+  const sf::RenderWindow &window,
+  Paddle &paddle
 );
 
 #endif // PADDLE_H
