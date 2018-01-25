@@ -51,6 +51,12 @@ sf::RectangleShape get_shape(
   const Paddle &paddle
 );
 
+///Prevent the paddle from exiting the window
+void keep_paddle_in_window(
+  const sf::RenderWindow &window,
+  Paddle &paddle
+);
+
 ///Move the paddle
 void move(
   const sf::RenderWindow &window,

@@ -40,13 +40,16 @@ void Game::process_poll_events()
 ///This happens every tick in the program
 void Game::tick()
 {
-  process_poll_events();
   const double update_time = 10;
 
   if(m_clock.getElapsedTime().asMilliseconds() >= update_time)
   {
+    //Check for events
+    process_poll_events();
+    keep_paddle_in_window(*m_window, m_paddle);
     move(m_ball);
     keep_ball_in_window(*m_window, m_ball);
+
     m_clock.restart();
   }
 

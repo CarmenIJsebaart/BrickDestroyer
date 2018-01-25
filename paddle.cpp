@@ -40,13 +40,43 @@ sf::RectangleShape get_shape(
   return paddle_shape;
 }
 
+///Prevent the paddle from exiting the window
+void keep_paddle_in_window(
+  const sf::RenderWindow &window,
+  Paddle &paddle)
+{
+  const int paddle_width = paddle.get_width();
+  const int window_width = window.getSize().x;
+
+  //Get y-position of the paddle
+  const float pos_y = paddle.get_position().y;
+
+  //Check the left wall
+  if(sf::Mouse::getPosition(window).x <= (paddle_width*0.5))
+  {
+    paddle.set_position(sf::Vector2f(0, pos_y));
+  }
+
+  //Check the right wall
+  if(sf::Mouse::getPosition(window).x >= (window_width - (0.5*paddle_width)))
+  {
+    paddle.set_position(sf::Vector2f(window_width - paddle_width, pos_y));
+  }
+}
+
 ///Move the paddle
 void move(
   const sf::RenderWindow &window,
   Paddle &paddle)
 {
+  //Calculate the x-position of the paddle
+  float x_pos = sf::Mouse::getPosition(window).x - (paddle.get_width()*0.5);
+
+  //Always use the same y-position
+  const float y_pos = paddle.get_position().y;
+
   //Set the new position of the paddle
-  paddle.set_position(sf::Vector2f(sf::Mouse::getPosition(window).x, paddle.get_position().y));
+  paddle.set_position(sf::Vector2f(x_pos, y_pos));
 }
 
 ///Set the position of the paddle
