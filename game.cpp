@@ -46,12 +46,21 @@ void Game::tick()
   {
     //Check for events
     process_poll_events();
+
+    //Keep paddle in the window
     keep_paddle_in_window(*m_window, m_paddle);
+
+    //Move and keep ball in window
     move(m_ball);
     keep_ball_in_window(*m_window, m_ball);
 
+    //Check for collision
+    are_colliding(m_ball, m_paddle);
+
+    //Restart clock
     m_clock.restart();
   }
 
+  //Draw all components on the window
   draw_on_window(*m_window, m_ball, m_paddle);
 }

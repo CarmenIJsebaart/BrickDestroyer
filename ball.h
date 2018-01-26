@@ -2,6 +2,7 @@
 #define BALL_H
 
 #include <SFML/Graphics.hpp>
+#include "paddle.h"
 
 class Ball
 {
@@ -53,6 +54,12 @@ private:
   float m_speed_y;
 
 };
+
+///Check for collision between ball and paddle
+bool are_colliding(
+  const Ball &ball,
+  const Paddle &paddle
+);
 
 ///Create ball
 Ball create_ball(

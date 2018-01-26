@@ -14,6 +14,15 @@ Ball::Ball(
 {
 }
 
+///Check for collision between ball and paddle
+bool are_colliding(
+  const Ball &ball,
+  const Paddle &paddle
+)
+{
+
+}
+
 ///Create ball
 Ball create_ball(
   const int window_height,

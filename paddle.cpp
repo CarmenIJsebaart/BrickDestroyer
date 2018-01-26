@@ -21,7 +21,7 @@ Paddle create_paddle(
   const int height = 10;
   const int width = 100;
   Paddle paddle(
-    sf::Vector2f((window_width/2)-(0.5*width), window_height - height),
+    sf::Vector2f((window_width/2)-(0.5*width), window_height - 2*height),
     height,
     width,
     sf::Color::Blue);
