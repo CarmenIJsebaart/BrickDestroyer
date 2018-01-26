@@ -61,6 +61,16 @@ bool are_colliding(
   const Paddle &paddle
 );
 
+///Change the x-direction of the ball after collision
+void change_x_direction(
+  Ball &ball
+);
+
+///Change the y-direction of the ball after collision
+void change_y_direction(
+  Ball &ball
+);
+
 ///Create ball
 Ball create_ball(
   const int window_height,

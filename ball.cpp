@@ -20,7 +20,47 @@ bool are_colliding(
   const Paddle &paddle
 )
 {
+  //Get the position of the ball
+  const float ball_pos_x = ball.get_position().x;
+  const float ball_pos_y = ball.get_position().y;
 
+  //Get the position of the paddle
+  const float paddle_pos_x = paddle.get_position().x;
+  const float paddle_pos_y = paddle.get_position().y;
+
+  //Check for collision
+  if(ball_pos_y >= paddle_pos_y &&
+     ball_pos_x > paddle_pos_x  &&
+     ball_pos_x < (paddle_pos_x + (paddle.get_width())))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+///Change the direction of the ball after collision
+void change_x_direction(
+  Ball &ball
+)
+{
+  float curr_speed_x = ball.get_speed_x();
+  float new_speed_x;
+  new_speed_x = -1.0*curr_speed_x;
+  ball.set_speed_x(new_speed_x);
+}
+
+///Change the direction of the ball after collision
+void change_y_direction(
+  Ball &ball
+)
+{
+  float curr_speed_y = ball.get_speed_y();
+  float new_speed_y;
+  new_speed_y = -1.0*curr_speed_y;
+  ball.set_speed_y(new_speed_y);
 }
 
 ///Create ball
@@ -60,24 +100,18 @@ void keep_ball_in_window(
 {
   //Check the right and left wall
   float x_pos = ball.get_position().x;
-  float curr_speed_x = ball.get_speed_x();
-  float new_speed_x;
   if(x_pos >= (window.getSize().x - ball.get_size()) ||
      x_pos <= 0.0)
   {
-    new_speed_x = -1.0*curr_speed_x;
-    ball.set_speed_x(new_speed_x);
+    change_x_direction(ball);
   }
 
   //Check the lower and upper wall
   float y_pos = ball.get_position().y;
-  float curr_speed_y = ball.get_speed_y();
-  float new_speed_y;
   if(y_pos >= (window.getSize().y - ball.get_size()) ||
      y_pos <= 0.0)
   {
-    new_speed_y = -1.0*curr_speed_y;
-    ball.set_speed_y(new_speed_y);
+    change_y_direction(ball);
   }
 }
 
