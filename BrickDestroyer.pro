@@ -7,7 +7,9 @@ SOURCES += main.cpp \
     game.cpp \
     window.cpp \
     ball.cpp \
-    paddle.cpp
+    paddle.cpp \
+    level.cpp \
+    grid.cpp
 
 CONFIG += c++14
 QMAKE_CXX = g++-5
@@ -21,7 +23,9 @@ HEADERS += \
     game.h \
     window.h \
     ball.h \
-    paddle.h
+    paddle.h \
+    level.h \
+    grid.h
 
 # Debug and release mode
 CONFIG += debug_and_release

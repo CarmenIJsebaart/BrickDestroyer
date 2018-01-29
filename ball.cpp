@@ -29,7 +29,7 @@ bool are_colliding(
   const float paddle_pos_y = paddle.get_position().y;
 
   //Check for collision
-  if(ball_pos_y >= paddle_pos_y &&
+  if(ball_pos_y + ball.get_size() >= paddle_pos_y &&
      ball_pos_x > paddle_pos_x  &&
      ball_pos_x < (paddle_pos_x + (paddle.get_width())))
   {

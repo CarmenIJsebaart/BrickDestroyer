@@ -14,19 +14,22 @@ sf::RenderWindow * create_window(
 ///Draw a particular state of the program on the window
 void draw_on_window(
   sf::RenderWindow &window,
+  const Level &level,
   const Ball &ball,
   const Paddle &paddle)
 {
-  game_on_screen(window, ball, paddle);
+  game_on_screen(window, level, ball, paddle);
 }
 
 ///Draw the game on the window
 void game_on_screen(
-  sf::RenderWindow & window,
+  sf::RenderWindow &window,
+  const Level &level,
   const Ball &ball,
   const Paddle &paddle)
 {
   window.clear();
+  draw_level(window, level);
   window.draw(get_shape(ball));
   window.draw(get_shape(paddle));
   window.display();

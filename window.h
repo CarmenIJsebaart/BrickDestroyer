@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ball.h"
+#include "level.h"
 #include "paddle.h"
 
 ///Create program window
@@ -14,6 +15,7 @@ sf::RenderWindow * create_window(
 ///Draw a particular state of the program on the window
 void draw_on_window(
   sf::RenderWindow &window,
+  const Level &level,
   const Ball &ball,
   const Paddle &paddle
 );
@@ -21,6 +23,7 @@ void draw_on_window(
 ///Draw the game on the window
 void game_on_screen(
   sf::RenderWindow &window,
+  const Level &level,
   const Ball &ball,
   const Paddle &paddle
 );
