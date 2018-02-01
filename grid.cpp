@@ -10,7 +10,6 @@ Grid::Grid(const int horizontal_squares,
     m_brick_height{block_height},
     m_brick_width{block_width}
 {
-
 }
 
 ///Create grid
@@ -18,8 +17,8 @@ Grid create_grid(
   const sf::RenderWindow &window)
 {
   //Create a grid with these parameters
-  const int horizontal_squares = 14;
-  const int vertical_squares = 14;
+  const int horizontal_squares = 10;
+  const int vertical_squares = 15;
   const int block_height = window.getSize().y / vertical_squares * 0.5;
   const int block_width = window.getSize().x / horizontal_squares;
 
@@ -43,9 +42,9 @@ void draw_grid(
   const int n_cols = grid.get_horizontal_squares();
   const int n_rows = grid.get_vertical_squares();
 
-  for (int x = 0; x != n_cols; ++x)
+  for (int x = 0; x != n_rows; ++x)
   {
-    for (int y = 0; y != n_rows; ++y)
+    for (int y = 0; y != n_cols; ++y)
     {
       const sf::Color c = grid.get(x,y);
       sf::RectangleShape s;
