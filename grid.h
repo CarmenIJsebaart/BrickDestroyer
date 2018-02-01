@@ -3,8 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
-/// A grid of colors, where black denotes
-/// an empty square, all other colors a brick x
+///A grid of colors, where black denotes
+///an empty square, all other colors a brick x
 class Grid
 {
 public:
@@ -15,24 +15,35 @@ public:
     const int block_width
   );
 
+  ///Get the color of a brick
   sf::Color get(const int x, const int y) const noexcept { return m_v[y][x]; }
+
+  ///Get the amount of horizontal bricks in the grid
   int get_horizontal_squares() const noexcept { return m_v.size(); }
-  int get_block_height() const noexcept { return m_block_height; }
-  int get_block_width() const noexcept { return m_block_width; }
+
+  ///Get the height of a brick in the grid
+  int get_brick_height() const noexcept { return m_brick_height; }
+
+  ///Get the width of a brick in the grid
+  int get_brick_width() const noexcept { return m_brick_width; }
+
+  ///Get the amount of vertical bricks in the grid
   int get_vertical_squares() const noexcept { return m_v[0].size(); }
 
 private:
 
-  std::vector<std::vector<sf::Color>> m_v;
-  int m_block_height;
-  int m_block_width;
+  std::vector<std::vector<sf::Color>> m_v; //The actual grid
+  int m_brick_height;
+  int m_brick_width;
 
 };
 
+///Create the grid
 Grid create_grid(
   const sf::RenderWindow &window
 );
 
+///Draw the grid on the window
 void draw_grid(
   sf::RenderWindow &window,
   const Grid &grid);

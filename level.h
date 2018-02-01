@@ -6,7 +6,7 @@
 
 #include "grid.h"
 
-/// A level has a grid (of colors)
+///A level has a grid (of colors)
 class Level
 {
 public:
@@ -22,10 +22,12 @@ private:
 
 };
 
+///Create level
 Level create_level(
   const sf::RenderWindow &window
 );
 
+///Draw the level on the window
 void draw_level(
   sf::RenderWindow &window,
   const Level &level);

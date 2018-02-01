@@ -7,14 +7,15 @@ Level::Level(
   m_grid = create_grid(window);
 }
 
+///Create leveel
 Level create_level(
   const sf::RenderWindow &window)
 {
-  // nost vexing parse
   Level level(window);
   return level;
 }
 
+///Draw the level on the window
 void draw_level(
   sf::RenderWindow &window,
   const Level &level)
