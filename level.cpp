@@ -1,15 +1,17 @@
 #include "level.h"
 
 Level::Level(
-) : m_grid(10, 10, 10)
+  const sf::RenderWindow &window
+) : m_grid(10, 10, 10, 10)
 {
-  m_grid = create_grid();
+  m_grid = create_grid(window);
 }
 
-Level create_level()
+Level create_level(
+  const sf::RenderWindow &window)
 {
   // nost vexing parse
-  Level level;
+  Level level(window);
   return level;
 }
 

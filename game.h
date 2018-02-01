@@ -23,9 +23,9 @@ private:
 
   sf::Clock m_clock;
   Ball m_ball;
-  Level m_level; //Current level
   Paddle m_paddle;
   std::unique_ptr<sf::RenderWindow> m_window;
+  Level m_level; //Current level
 
   ///Process events
   void process_poll_events();

@@ -11,22 +11,27 @@ public:
   Grid(
     const int horizontal_squares,
     const int vertical_squares,
-    const int pixel_size
+    const int block_height,
+    const int block_width
   );
 
   sf::Color get(const int x, const int y) const noexcept { return m_v[y][x]; }
   int get_horizontal_squares() const noexcept { return m_v.size(); }
-  int get_pixel_size() const noexcept { return m_pixel_size; }
+  int get_block_height() const noexcept { return m_block_height; }
+  int get_block_width() const noexcept { return m_block_width; }
   int get_vertical_squares() const noexcept { return m_v[0].size(); }
 
 private:
 
   std::vector<std::vector<sf::Color>> m_v;
-  int m_pixel_size;
+  int m_block_height;
+  int m_block_width;
 
 };
 
-Grid create_grid();
+Grid create_grid(
+  const sf::RenderWindow &window
+);
 
 void draw_grid(
   sf::RenderWindow &window,

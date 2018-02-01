@@ -2,12 +2,11 @@
 
 Game::Game(
 ) : m_ball(sf::Vector2f(), 0.0, sf::Color::Black, 0.0, 0.0),
-    m_level{},
     m_paddle{sf::Vector2f(), 0.0, 0.0, sf::Color::Black},
-    m_window{create_window()}
+    m_window{create_window()},
+    m_level{create_level(*m_window)}
 {
   m_ball = create_ball(m_window->getSize().y, m_window->getSize().x);
-  m_level = create_level();
   m_paddle = create_paddle(m_window->getSize().y, m_window->getSize().x);
 }
 

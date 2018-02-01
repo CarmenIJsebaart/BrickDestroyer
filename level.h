@@ -10,7 +10,9 @@
 class Level
 {
 public:
-  Level();
+  Level(
+    const sf::RenderWindow &window
+  );
 
   const Grid& get_grid() const noexcept { return m_grid; }
 
@@ -20,7 +22,9 @@ private:
 
 };
 
-Level create_level();
+Level create_level(
+  const sf::RenderWindow &window
+);
 
 void draw_level(
   sf::RenderWindow &window,
