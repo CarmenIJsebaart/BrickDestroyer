@@ -14,7 +14,9 @@ public:
     const sf::RenderWindow &window
   );
 
+  ///Get the grid
   const Grid& get_grid() const noexcept { return m_grid; }
+        Grid& get_grid() noexcept { return m_grid; }
 
 private:
 

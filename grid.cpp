@@ -2,13 +2,14 @@
 
 #include <iostream>
 
-Grid::Grid(const int horizontal_squares,
+Grid::Grid(
+  const int horizontal_squares,
   const int vertical_squares,
-  const int block_height,
-  const int block_width
+  const int brick_height,
+  const int brick_width
 ) : m_v(vertical_squares, std::vector<sf::Color>(horizontal_squares, sf::Color::Yellow)),
-    m_brick_height{block_height},
-    m_brick_width{block_width}
+    m_brick_height{brick_height},
+    m_brick_width{brick_width}
 {
 }
 
@@ -19,14 +20,14 @@ Grid create_grid(
   //Create a grid with these parameters
   const int horizontal_squares = 10;
   const int vertical_squares = 15;
-  const int block_height = window.getSize().y / vertical_squares * 0.5;
-  const int block_width = window.getSize().x / horizontal_squares;
+  const int brick_height = window.getSize().y / vertical_squares * 0.5;
+  const int brick_width = window.getSize().x / horizontal_squares;
 
   Grid grid(
     horizontal_squares,
     vertical_squares,
-    block_height,
-    block_width
+    brick_height,
+    brick_width
   );
 
   return grid;
@@ -37,8 +38,8 @@ void draw_grid(
   sf::RenderWindow &window,
   const Grid &grid)
 {
-  const int block_height = grid.get_brick_height();
-  const int block_width = grid.get_brick_width();
+  const int brick_height = grid.get_brick_height();
+  const int brick_width = grid.get_brick_width();
   const int n_cols = grid.get_horizontal_squares();
   const int n_rows = grid.get_vertical_squares();
 
@@ -46,14 +47,22 @@ void draw_grid(
   {
     for (int y = 0; y != n_cols; ++y)
     {
-      const sf::Color c = grid.get(x,y);
+      const sf::Color c = grid.get_color(x,y);
       sf::RectangleShape s;
       s.setFillColor(c);
-      s.setPosition(x * block_width, y * block_height);
-      s.setSize(sf::Vector2f(block_width, block_height));
+      s.setPosition(x * brick_width, y * brick_height);
+      s.setSize(sf::Vector2f(brick_width, brick_height));
       s.setOutlineThickness(-1);
       s.setOutlineColor(sf::Color::Black);
       window.draw(s);
     }
   }
+}
+
+void Grid::set_color(
+  const int x,
+  const int y,
+  const sf::Color color)
+{
+  m_v[y][x] = color;
 }

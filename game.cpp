@@ -55,8 +55,15 @@ void Game::tick()
     move(m_ball);
     keep_ball_in_window(*m_window, m_ball);
 
-    //Check for collision
+    //Check for collision between ball and paddle
     if(are_colliding(m_ball, m_paddle))
+    {
+      change_y_direction(m_ball);
+      move(m_ball);
+    }
+
+    //Check for collision between ball and bricks in the level
+    if(are_colliding(m_ball, m_level))
     {
       change_y_direction(m_ball);
       move(m_ball);

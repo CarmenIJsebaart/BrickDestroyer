@@ -1,5 +1,7 @@
 #include "ball.h"
 
+#include <iostream>
+
 Ball::Ball(
   const sf::Vector2f &any_position,
   const float size,
@@ -12,6 +14,36 @@ Ball::Ball(
     m_speed_x{any_speed_x},
     m_speed_y{any_speed_y}
 {
+}
+
+///Check for collision between ball and bricks in the level
+bool are_colliding(const Ball &ball, Level &level)
+{
+  //Calculate at what coordinate the ball is
+  const int col = ball.get_position().x / level.get_grid().get_brick_width();
+  const int row = ball.get_position().y / level.get_grid().get_brick_height();
+
+  std::cout << col << ", " << row << "\n";
+
+  //Is the cell a grid cell?
+  if(row > level.get_grid().get_vertical_squares())
+  {
+    return false;
+  }
+
+  //Check the color of the brick in which the ball is
+  sf::Color color = level.get_grid().get_color(col, row);
+
+  //Check for collision
+  if(color == sf::Color::Yellow)
+  {
+    level.get_grid().set_color(col, row, sf::Color::Black);
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 ///Check for collision between ball and paddle
