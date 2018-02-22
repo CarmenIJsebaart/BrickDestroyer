@@ -1,5 +1,6 @@
 #include "grid.h"
 
+#include <cassert>
 #include <iostream>
 
 Grid::Grid(
@@ -11,6 +12,9 @@ Grid::Grid(
     m_brick_height{brick_height},
     m_brick_width{brick_width}
 {
+
+  assert(get_horizontal_squares() == horizontal_squares);
+  assert(get_vertical_squares() == vertical_squares);
 }
 
 ///Create grid
@@ -43,9 +47,9 @@ void draw_grid(
   const int n_cols = grid.get_horizontal_squares();
   const int n_rows = grid.get_vertical_squares();
 
-  for (int x = 0; x != n_rows; ++x)
+  for (int y = 0; y != n_rows; ++y)
   {
-    for (int y = 0; y != n_cols; ++y)
+    for (int x = 0; x != n_cols; ++x)
     {
       const sf::Color c = grid.get_color(x,y);
       sf::RectangleShape s;
@@ -65,4 +69,6 @@ void Grid::set_color(
   const sf::Color color)
 {
   m_v[y][x] = color;
+
+  assert(get_color(x, y) == color);
 }

@@ -26,7 +26,7 @@ bool are_colliding(const Ball &ball, Level &level)
   std::cout << col << ", " << row << "\n";
 
   //Is the cell a grid cell?
-  if(row > level.get_grid().get_vertical_squares())
+  if(row >= level.get_grid().get_vertical_squares())
   {
     return false;
   }
@@ -35,7 +35,7 @@ bool are_colliding(const Ball &ball, Level &level)
   sf::Color color = level.get_grid().get_color(col, row);
 
   //Check for collision
-  if(color == sf::Color::Yellow)
+  if(color != sf::Color::Black)
   {
     level.get_grid().set_color(col, row, sf::Color::Black);
     return true;
@@ -102,10 +102,10 @@ Ball create_ball(
 {
   //Create a ball with these parameters:
   const int size = 5;
-  const float speed_x = 0.75;
-  const float speed_y = 0.75;
+  const float speed_x = 2.5;
+  const float speed_y = 2.5;
   Ball ball(
-    sf::Vector2f(window_width/2, window_height/2),
+    sf::Vector2f(window_width/2.0, window_height/2.0),
     size,
     sf::Color::White,
     speed_x,
