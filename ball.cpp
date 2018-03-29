@@ -23,8 +23,6 @@ bool are_colliding(const Ball &ball, Level &level)
   const int col = ball.get_position().x / level.get_grid().get_brick_width();
   const int row = ball.get_position().y / level.get_grid().get_brick_height();
 
-  std::cout << col << ", " << row << "\n";
-
   //Is the cell a grid cell?
   if(row >= level.get_grid().get_vertical_squares())
   {
@@ -73,10 +71,18 @@ bool are_colliding(
   }
 }
 
-///Change the direction of the ball after collision
-void change_x_direction(
+///Change the direcetion of the ball after collision with a brick
+void change_direction(
   Ball &ball
 )
+{
+  float curr_speed_x = ball.get_speed_x();
+  float curr_speed_y = ball.get_speed_y();
+}
+
+///Change the direction of the ball after collision
+void change_x_direction(
+  Ball &ball)
 {
   float curr_speed_x = ball.get_speed_x();
   float new_speed_x;
@@ -86,8 +92,7 @@ void change_x_direction(
 
 ///Change the direction of the ball after collision
 void change_y_direction(
-  Ball &ball
-)
+  Ball &ball)
 {
   float curr_speed_y = ball.get_speed_y();
   float new_speed_y;
@@ -102,8 +107,8 @@ Ball create_ball(
 {
   //Create a ball with these parameters:
   const int size = 5;
-  const float speed_x = 2.5;
-  const float speed_y = 2.5;
+  const float speed_x = 1.0;
+  const float speed_y = 1.0;
   Ball ball(
     sf::Vector2f(window_width/2.0, window_height/2.0),
     size,

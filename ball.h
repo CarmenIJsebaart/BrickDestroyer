@@ -56,6 +56,7 @@ private:
 
 };
 
+///Check for collision between ball and bricks
 bool are_colliding(
   const Ball &ball,
   Level &level
@@ -65,6 +66,11 @@ bool are_colliding(
 bool are_colliding(
   const Ball &ball,
   const Paddle &paddle
+);
+
+///Change the direction of the ball, according to the collision side
+void change_direction(
+  Ball &ball
 );
 
 ///Change the x-direction of the ball after collision
