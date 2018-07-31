@@ -30,18 +30,44 @@ void Game::draw_game_over()
   m_window->display();
 }
 
+void Game::draw_level_won()
+{
+  m_window->clear();
+  sf::Text text;
+  text.setString("WON!");
+  text.setPosition(70, 250);
+  text.setCharacterSize(60);
+  text.setFillColor(sf::Color::Green);
+
+  sf::Font font;
+  assert(font.loadFromFile("arial.ttf"));
+
+  text.setFont(font);
+  m_window->draw(text);
+  m_window->display();
+}
+
+bool Game::has_finished_level() const
+{
+  return m_level.is_empty();
+}
+
 ///Run the program
 void Game::run()
 {
   while(m_window->isOpen())
   {
-    if(!m_is_game_over)
+    if(m_game_state == GameState::running)
     {
       tick();
     }
-    else
+    else if(m_game_state == GameState::game_over)
     {
       draw_game_over();
+    }
+    else if(m_game_state == GameState::level_won)
+    {
+      draw_level_won();
     }
   }
 }
@@ -83,7 +109,7 @@ void Game::tick()
 
     if (player_has_died(*m_window, m_ball))
     {
-      m_is_game_over = true;
+      m_game_state = GameState::game_over;
       return;
     }
     keep_ball_in_window(*m_window, m_ball);
@@ -108,6 +134,12 @@ void Game::tick()
         change_x_direction(m_ball);
       }
       move(m_ball);
+    }
+
+    if (has_finished_level())
+    {
+      m_game_state = GameState::level_won;
+      return;
     }
 
     //Restart clock

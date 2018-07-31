@@ -43,6 +43,9 @@ public:
     const std::vector<sf::Color>& colors
   );
 
+  ///Returns true if all grid cells are black
+  bool is_empty() const;
+
 private:
 
   //Y-X ordered (first index is the y coordinator, aka number of rows)
@@ -58,6 +61,11 @@ Grid create_grid(
 
 ///Create the grid
 Grid create_grid_fire_flower(
+  const sf::RenderWindow &window
+);
+
+///Create a simple testing grid
+Grid create_test_grid(
   const sf::RenderWindow &window
 );
 

@@ -18,6 +18,9 @@ public:
   const Grid& get_grid() const noexcept { return m_grid; }
         Grid& get_grid() noexcept { return m_grid; }
 
+  ///Returns true if all grid cells are black
+  bool is_empty() const;
+
 private:
 
   Grid m_grid;

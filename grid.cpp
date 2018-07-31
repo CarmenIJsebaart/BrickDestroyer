@@ -330,6 +330,26 @@ Grid create_grid_fire_flower(
   return grid;
 }
 
+Grid create_test_grid(
+  const sf::RenderWindow &window)
+{
+  //Create a grid with these parameters
+  const int horizontal_squares = 1;
+  const int vertical_squares = 1;
+  const int brick_height = window.getSize().y / vertical_squares * 0.5;
+  const int brick_width = window.getSize().x / horizontal_squares;
+
+  Grid grid(
+    horizontal_squares,
+    vertical_squares,
+    brick_height,
+    brick_width
+  );
+
+  return grid;
+}
+
+
 ///Draw the grid on the window
 void draw_grid(
   sf::RenderWindow &window,
@@ -354,6 +374,21 @@ void draw_grid(
       window.draw(s);
     }
   }
+}
+
+bool Grid::is_empty() const
+{
+  for (const auto& row: this->m_v)
+  {
+    for (const auto& cell: row)
+    {
+      if (cell != sf::Color::Black)
+      {
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 void Grid::set_color(
