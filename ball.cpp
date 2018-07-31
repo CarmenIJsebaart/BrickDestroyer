@@ -1,5 +1,6 @@
 #include "ball.h"
 
+#include <cassert>
 #include <iostream>
 
 Ball::Ball(
@@ -17,7 +18,7 @@ Ball::Ball(
 }
 
 ///Check for collision between ball and bricks in the level
-bool are_colliding(const Ball &ball, Level &level)
+Collision get_collision(const Ball &ball, Level &level)
 {
   //Calculate at what coordinate the ball is
   const int col = ball.get_position().x / level.get_grid().get_brick_width();
@@ -26,26 +27,42 @@ bool are_colliding(const Ball &ball, Level &level)
   //Is the cell a grid cell?
   if(row >= level.get_grid().get_vertical_squares())
   {
-    return false;
+    return Collision::no;
   }
 
   //Check the color of the brick in which the ball is
-  sf::Color color = level.get_grid().get_color(col, row);
-
+  const sf::Color color = level.get_grid().get_color(col, row);
+  if(color == sf::Color::Black)
+  {
+    return Collision::no;
+  }
   //Check for collision
-  if(color != sf::Color::Black)
+  level.get_grid().set_color(col, row, sf::Color::Black);
+
+  const int x_in_brick = static_cast<int>(ball.get_position().x) % level.get_grid().get_brick_width();
+  const int y_in_brick = static_cast<int>(ball.get_position().y) % level.get_grid().get_brick_height();
+  if (x_in_brick < 2)
   {
-    level.get_grid().set_color(col, row, sf::Color::Black);
-    return true;
+    return Collision::hor;
   }
-  else
+  else if(y_in_brick < 2)
   {
-    return false;
+    return Collision::ver;
   }
+  else if(x_in_brick > level.get_grid().get_brick_width() - 2)
+  {
+    return Collision::hor;
+  }
+  else if(y_in_brick > level.get_grid().get_brick_height() - 2)
+  {
+    return Collision::ver;
+  }
+  assert(!"Should not get here");
+  return Collision::ver;
 }
 
 ///Check for collision between ball and paddle
-bool are_colliding(
+bool get_collision(
   const Ball &ball,
   const Paddle &paddle
 )

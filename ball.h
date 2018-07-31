@@ -5,6 +5,13 @@
 #include "level.h"
 #include "paddle.h"
 
+enum Collision
+{
+  no,  //No collision
+  hor, //Horizontally
+  ver  //Vertically
+};
+
 class Ball
 {
 public:
@@ -57,13 +64,14 @@ private:
 };
 
 ///Check for collision between ball and bricks
-bool are_colliding(
+///Can be none, vertical or horizontal
+Collision get_collision(
   const Ball &ball,
   Level &level
 );
 
 ///Check for collision between ball and paddle
-bool are_colliding(
+bool get_collision(
   const Ball &ball,
   const Paddle &paddle
 );

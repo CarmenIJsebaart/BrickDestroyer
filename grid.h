@@ -39,6 +39,7 @@ public:
 
 private:
 
+  //Y-X ordered (first index is the y coordinator, aka number of rows)
   std::vector<std::vector<sf::Color>> m_v; //The actual grid
   int m_brick_height;
   int m_brick_width;

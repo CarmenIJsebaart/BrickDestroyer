@@ -12,7 +12,6 @@ Grid::Grid(
     m_brick_height{brick_height},
     m_brick_width{brick_width}
 {
-
   assert(get_horizontal_squares() == horizontal_squares);
   assert(get_vertical_squares() == vertical_squares);
 }
