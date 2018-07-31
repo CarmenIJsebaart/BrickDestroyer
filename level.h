@@ -21,10 +21,15 @@ public:
   ///Returns true if all grid cells are black
   bool is_empty() const;
 
+  ///Go to next level
+  void next(sf::RenderWindow &window);
+
 private:
 
   Grid m_grid;
 
+  ///Human counting
+  int m_level{1};
 };
 
 ///Create level

@@ -45,6 +45,26 @@ void Game::draw_level_won()
   text.setFont(font);
   m_window->draw(text);
   m_window->display();
+
+  //Wait until the user presses a key
+  sf::Event event;
+  while (1)
+  {
+    while(m_window->pollEvent(event))
+    {
+
+      switch(event.type)
+      {
+        case sf::Event::Closed:
+          m_window->close();
+          break;
+        case sf::Event::KeyPressed:
+          return;
+        default:
+          continue;
+      }
+    }
+  }
 }
 
 bool Game::has_finished_level() const
@@ -68,6 +88,8 @@ void Game::run()
     else if(m_game_state == GameState::level_won)
     {
       draw_level_won();
+      m_level.next(*m_window);
+      m_game_state = GameState::running;
     }
   }
 }

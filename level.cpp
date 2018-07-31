@@ -28,3 +28,13 @@ bool Level::is_empty() const
 {
   return m_grid.is_empty();
 }
+
+void Level::next(sf::RenderWindow &window)
+{
+  ++m_level;
+  switch (m_level)
+  {
+    case 2: m_grid = create_grid_fire_flower(window); break;
+    default: m_grid = create_test_grid(window); break;
+  }
+}
