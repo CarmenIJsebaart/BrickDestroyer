@@ -37,6 +37,12 @@ public:
     const sf::Color color
   );
 
+  ///Set the colors of the brick in the grid's ith row
+  void set_row_colors(
+    const int y,
+    const std::vector<sf::Color>& colors
+  );
+
 private:
 
   //Y-X ordered (first index is the y coordinator, aka number of rows)
@@ -47,6 +53,11 @@ private:
 
 ///Create the grid
 Grid create_grid(
+  const sf::RenderWindow &window
+);
+
+///Create the grid
+Grid create_grid_fire_flower(
   const sf::RenderWindow &window
 );
 

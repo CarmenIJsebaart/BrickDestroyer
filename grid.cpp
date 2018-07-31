@@ -36,6 +36,300 @@ Grid create_grid(
   return grid;
 }
 
+Grid create_grid_fire_flower(
+  const sf::RenderWindow &window)
+{
+  //Create a grid with these parameters
+  const int horizontal_squares = 16;
+  const int vertical_squares = 16;
+  const int brick_height = window.getSize().y / vertical_squares * 0.5;
+  const int brick_width = window.getSize().x / horizontal_squares;
+
+  Grid grid(
+    horizontal_squares,
+    vertical_squares,
+    brick_height,
+    brick_width
+  );
+
+  using sf::Color;
+  //Row 1
+  grid.set_row_colors(0,
+    {
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black
+    }
+  );
+  for (int row: {1, 7} )
+  {
+    grid.set_row_colors(
+      row,
+    {
+      Color::Black,
+      Color::Black,
+      Color::White,
+      Color::White,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::Red,
+      Color::White,
+      Color::White,
+      Color::Black,
+      Color::Black
+    }
+  );
+  }
+  for (int row: {2, 6} )
+  {
+    grid.set_row_colors(
+      row,
+      {
+        Color::Black,
+        Color::White,
+        Color::Red,
+        Color::Red,
+        Color::Red,
+        Color(255,128,0),
+        Color(255,128,0),
+        Color(255,128,0),
+        Color(255,128,0),
+        Color(255,128,0),
+        Color(255,128,0),
+        Color::Red,
+        Color::Red,
+        Color::Red,
+        Color::White,
+        Color::Black
+      }
+    );
+  }
+  for (int row: {3, 5} )
+  {
+    grid.set_row_colors(
+      row,
+      {
+        Color::White,
+        Color::Red,
+        Color::Red,
+        Color(255,128,0),
+        Color(255,128,0),
+        Color::Yellow,
+        Color::Black,
+        Color::Yellow,
+        Color::Yellow,
+        Color::Black,
+        Color::Yellow,
+        Color(255,128,0),
+        Color(255,128,0),
+        Color::Red,
+        Color::Red,
+        Color::White
+      }
+    );
+  }
+  grid.set_row_colors(
+    4,
+    {
+      Color::White,
+      Color::Red,
+      Color::Red,
+      Color(255,128,0),
+      Color::Yellow,
+      Color::White,
+      Color::Black,
+      Color::White,
+      Color::White,
+      Color::Black,
+      Color::White,
+      Color::Yellow,
+      Color(255,128,0),
+      Color::Red,
+      Color::Red,
+      Color::White
+    }
+  );
+  grid.set_row_colors(8,
+    {
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black
+    }
+  );
+  grid.set_row_colors(9,
+    {
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black
+    }
+  );
+  grid.set_row_colors(10,
+    {
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White
+    }
+  );
+  grid.set_row_colors(11,
+    {
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White
+    }
+  );
+  grid.set_row_colors(12,
+    {
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White
+    }
+  );
+  grid.set_row_colors(13,
+    {
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::Black
+    }
+  );
+  grid.set_row_colors(14,
+    {
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::Green,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black
+    }
+  );
+  grid.set_row_colors(15,
+    {
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::White,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black,
+      sf::Color::Black
+    }
+  );
+  return grid;
+}
+
 ///Draw the grid on the window
 void draw_grid(
   sf::RenderWindow &window,
@@ -70,4 +364,16 @@ void Grid::set_color(
   m_v[y][x] = color;
 
   assert(get_color(x, y) == color);
+}
+
+void Grid::set_row_colors(
+  const int y,
+  const std::vector<sf::Color>& colors
+)
+{
+  const int maxx = colors.size();
+  for (int x = 0; x != maxx; ++x)
+  {
+    set_color(x, y, colors[x]);
+  }
 }

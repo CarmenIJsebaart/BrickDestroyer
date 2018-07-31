@@ -4,7 +4,7 @@ Level::Level(
   const sf::RenderWindow &window
 ) : m_grid(10, 10, 10, 10)
 {
-  m_grid = create_grid(window);
+  m_grid = create_grid_fire_flower(window);
 }
 
 ///Create leveel
