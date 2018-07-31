@@ -113,4 +113,10 @@ void move(
   Ball &ball
 );
 
+///Does the ball leave the screen at the bottom?
+bool player_has_died(
+  const sf::RenderWindow &window,
+  const Ball &ball
+);
+
 #endif // BALL_H

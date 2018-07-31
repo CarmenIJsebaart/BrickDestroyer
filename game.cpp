@@ -1,4 +1,5 @@
 #include "game.h"
+#include <cassert>
 
 Game::Game(
 ) : m_ball(sf::Vector2f(), 0.0, sf::Color::Black, 0.0, 0.0),
@@ -10,12 +11,38 @@ Game::Game(
   m_paddle = create_paddle(m_window->getSize().y, m_window->getSize().x);
 }
 
+void Game::draw_game_over()
+{
+  //Check for events
+  //process_poll_events();
+  m_window->clear();
+  sf::Text text;
+  text.setString("GAME OVER");
+  text.setPosition(70, 250);
+  text.setCharacterSize(60);
+  text.setFillColor(sf::Color::Red);
+
+  sf::Font font;
+  assert(font.loadFromFile("arial.ttf"));
+
+  text.setFont(font);
+  m_window->draw(text);
+  m_window->display();
+}
+
 ///Run the program
 void Game::run()
 {
   while(m_window->isOpen())
   {
-    tick();
+    if(!m_is_game_over)
+    {
+      tick();
+    }
+    else
+    {
+      draw_game_over();
+    }
   }
 }
 
@@ -53,6 +80,12 @@ void Game::tick()
 
     //Move and keep ball in window
     move(m_ball);
+
+    if (player_has_died(*m_window, m_ball))
+    {
+      m_is_game_over = true;
+      return;
+    }
     keep_ball_in_window(*m_window, m_ball);
 
     //Check for collision between ball and paddle

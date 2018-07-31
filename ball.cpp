@@ -187,6 +187,14 @@ void move(
   ball.set_position(sf::Vector2f(new_x_pos, new_y_pos));
 }
 
+bool player_has_died(
+  const sf::RenderWindow &window,
+  const Ball &ball)
+{
+  return ball.get_position().y >= (window.getSize().y - ball.get_size());
+}
+
+
 ///Set the position of the ball
 void Ball::set_position(
   const sf::Vector2f &any_position)
