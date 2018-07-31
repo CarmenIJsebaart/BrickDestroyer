@@ -35,8 +35,8 @@ void Game::draw_level_won()
   m_window->clear();
   sf::Text text;
   text.setString("WON!");
-  text.setPosition(70, 250);
-  text.setCharacterSize(60);
+  text.setPosition(140, 250);
+  text.setCharacterSize(80);
   text.setFillColor(sf::Color::Green);
 
   sf::Font font;
